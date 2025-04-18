@@ -1,0 +1,20 @@
+extends:
+  - stylelint-config-standard-scss
+rules:
+  declaration-property-value-no-unknown: true
+  no-empty-source: true
+  selector-pseudo-element-no-unknown: true
+  at-rule-no-unknown: null
+  no-descending-specificity: null
+  property-no-unknown:
+    - true
+    - ignoreProperties:
+        - /^[A-Z\_]*[A-Z]$/
+  selector-class-pattern: null
+  scss/at-rule-no-unknown: true
+  scss/selector-no-redundant-nesting-selector: true
+  scss/at-import-partial-extension: null
+  selector-pseudo-class-no-unknown:
+    - true
+    - ignorePseudoClasses:
+        - export
