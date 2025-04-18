@@ -1,0 +1,53 @@
+plugins:
+  - typescript-sort-keys
+extends:
+  - 'plugin:@typescript-eslint/recommended'
+  - 'plugin:@typescript-eslint/recommended-requiring-type-checking'
+  - 'plugin:typescript-sort-keys/recommended'
+rules:
+  '@typescript-eslint/explicit-function-return-type': 'off'
+  '@typescript-eslint/typedef': error
+  '@typescript-eslint/switch-exhaustiveness-check': error
+  '@typescript-eslint/no-non-null-assertion': error
+  '@typescript-eslint/no-unsafe-assignment': error
+  '@typescript-eslint/no-unused-vars': 'off'
+  '@typescript-eslint/consistent-type-imports':
+    - error
+    - prefer: type-imports
+  '@typescript-eslint/no-shadow': error
+  '@typescript-eslint/no-explicit-any': 'off'
+  '@typescript-eslint/restrict-plus-operands':
+    - error
+    - skipCompoundAssignments: true
+      allowBoolean: false
+      allowNullish: false
+      allowNumberAndString: false
+      allowRegExp: false
+      allowAny: false
+  '@typescript-eslint/no-misused-promises':
+    - error
+    - checksVoidReturn: false
+  no-restricted-syntax:
+    - error
+    - selector: TSEnumDeclaration
+      message: >-
+        Use Object Literal instead.
+        https://typescriptbook.jp/reference/values-types-variables/enum/enum-problems-and-alternatives-to-enums#%E5%88%97%E6%8C%99%E5%9E%8B%E3%81%AE%E4%BB%A3%E6%9B%BF%E6%A1%882-%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB
+    - selector: ForInStatement
+      message: >-
+        for..in loops iterate over the entire prototype chain, which is virtually
+        never what you want. Use Object.{keys,values,entries}, and iterate over
+        the resulting array.
+    # - selector: ForOfStatement
+    #   message: >-
+    #     iterators/generators require regenerator-runtime, which is too heavyweight
+    #     for this guide to allow them. Separately, loops should be avoided in favor
+    #     of array iterations.
+    - selector: LabeledStatement
+      message: >-
+        Labels are a form of GOTO; using them makes code confusing and hard to
+        maintain and understand.
+    - selector: WithStatement
+      message: >-
+        `with` is disallowed in strict mode because it makes code impossible to
+        predict and optimize.

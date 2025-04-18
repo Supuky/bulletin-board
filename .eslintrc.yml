@@ -1,0 +1,28 @@
+root: true
+ignorePatterns:
+  - '**/*.[mc]js'
+  - 'env.d.ts'
+  - '**/*.module.scss.d.ts'
+env:
+  browser: true
+  node: true
+plugins:
+  - typescript-sort-keys
+  - import
+  - unused-imports
+extends:
+  - './config/eslint/error.yml'
+  - './config/eslint/js.yml'
+  - './config/eslint/import.yml'
+  - './config/eslint/ts.yml'
+  - './config/eslint/a11y.yml'
+  - './config/eslint/hooks.yml'
+  - prettier
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: 6
+  sourceType: module
+  ecmaFeatures:
+    generators: false
+    objectLiteralDuplicateProperties: false
+  project: './tsconfig.json'

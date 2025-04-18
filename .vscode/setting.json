@@ -1,0 +1,31 @@
+{
+  "files.insertFinalNewline": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[scss]": {
+    "editor.formatonSave": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "always"
+  },
+  "editor.formatOnPaste": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.tabSize": 2,
+  "_comment_markupLint": "Markup lint settings",
+  "markuplint.enable": true,
+  "_comment_styleLint": "Stylelint settings",
+  "css.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": ["css", "scss"],
+  "_comment_ts": "TypeScript settings",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "_comment_spellChecker": "Code Spell Checker settings",
+  "cSpell.userWords": ["clsx"],
+  "workbench.editorAssociations": {
+    "*.svg": "default"
+  }
+}
