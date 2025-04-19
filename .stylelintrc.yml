@@ -1,0 +1,3 @@
+extends:
+  - ./config/stylelint/scss.yml
+  - ./config/stylelint/order.yml
