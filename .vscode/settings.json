@@ -3,7 +3,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "[scss]": {
-    "editor.formatonSave": true
+    "editor.formatOnSave": true
   },
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always",
@@ -27,5 +27,5 @@
   "cSpell.userWords": ["clsx"],
   "workbench.editorAssociations": {
     "*.svg": "default"
-  }
+  },
 }
