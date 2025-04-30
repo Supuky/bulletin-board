@@ -1,3 +1,5 @@
+import sassOption from './config/webpack/sass.webpack.mjs';
+
 console.log('環境:', process.env.APP_ENV);
 const isProduction =
   process.env.APP_ENV === 'prd' || process.env.APP_ENV === 'stg';
@@ -9,6 +11,7 @@ const nextConfig = {
   output: 'standalone',
   poweredByHeader: false,
   reactStrictMode: true,
+  sassOption,
   compiler: {
     removeConsole:
       isProduction ?
