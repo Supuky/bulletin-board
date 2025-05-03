@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "generate-scss-enums:watch": "node ./scripts/scss/index.mjs --watch",
-    "generate-scss-enums:static": "node ./scripts/scss/index.mjs",
+    "generate-scss-enums:watch": "node ./scripts/sass/index.mjs --watch",
+    "generate-scss-enums:static": "node ./scripts/sass/index.mjs",
     "local-dev": "node ./scripts/env/index.mjs --mode=loc && NODE_OPTIONS='--inspect' next dev -p 8000 --experimental-https",
     "dev": "run-p generate-scss-enums:watch local-dev",
     "build:dev": "npm run generate-scss-enums:static && node ./scripts/env/index.mjs --mode=dev && next build",
