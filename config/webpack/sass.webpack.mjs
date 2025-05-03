@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const toSnakeCase = (str) => {
   str
@@ -16,7 +16,7 @@ const srcPath = path.resolve('src');
 
 const enumPath = `${srcPath}/assets/styles/common`;
 
-// src/assets/styles/common 直下の前ディレクトリを取得
+// src/assets/styles/common 直下の全ディレクトリを取得
 const allDirects = fs.readFileSync(enumPath, { withFileTypes: true });
 // ファイルのみを取得
 const allFiles = allDirects
