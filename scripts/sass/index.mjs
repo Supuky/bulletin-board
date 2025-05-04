@@ -16,13 +16,15 @@ const allFiles = allDirects
   .filter((dirent) => dirent.isFile())
   .map((dirent) => dirent.name);
 // sassファイルのみを取得
-const scssEnumFiles = allFiles.filter((file) => file.endsWith('.module.scss'));
+const scssModuleFiles = allFiles.filter((file) =>
+  file.endsWith('.module.scss'),
+);
 
 const generateScssFilePath = (file) => `${enumsPath}/${file}`;
 
 const execute = (file, scssFilePath) => {
   console.group('Start to generate type file');
-  console.log(`Start to analysis Sass file: ${scssEnumFiles}`);
+  console.log(`Start to analysis Sass file: ${scssFilePath}`);
   const exportData = analysisModuleSass(fs.readFileSync(scssFilePath, 'utf-8'));
   const fileName = file.match(/^\_?([A-z0-9]*)(\.module)?\.scss$/)[1];
   if (Object.keys(exportData).length === 0) {
@@ -47,7 +49,7 @@ if (!isWatch) {
 console.info('Start to watch Sass file');
 
 Promise.all(
-  scssEnumFiles.map((file) => {
+  scssModuleFiles.map((file) => {
     const scssFilePath = generateScssFilePath(file);
     fs.watchFile(scssFilePath, { interval: 1000 }, () => {
       console.group('Sass File changed:', scssFilePath);
