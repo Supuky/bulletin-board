@@ -1,5 +1,5 @@
 @use "sass:string";
 
 :export {
-  APP_PC_QUERY: string.unquote($breakpoints-app-pc-query);
+  APP_PC_QUERY: string.unquote($breakpoints-pc-query);
 }

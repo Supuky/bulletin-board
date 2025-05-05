@@ -30,7 +30,7 @@ $shadow-8:
 
 @mixin focus {
   @include utils.border(
-    [(width: 1px, color: colors.$primitive-blue-900),
-    (width: 4px, color: colors.$primitive-blue-200, outside: true)]
+    [(width: 1px, color: colors.$neutral-black),
+    (width: 4px, color: colors.$neutral-black, outside: true)]
   );
 }
