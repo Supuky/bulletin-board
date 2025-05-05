@@ -1,13 +1,13 @@
-$app-pc-query: "(width >= 992px)";
+$pc-query: "(width >= 990px)";
 
 @mixin app-pc {
-  @media screen and #{$app-pc-query} {
+  @media screen and #{$pc-query} {
     @content;
   }
 }
 
 @mixin app-sp {
-  @media screen and not #{$app-pc-query} {
+  @media screen and not #{$pc-query} {
     @content;
   }
 }

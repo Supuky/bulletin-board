@@ -3,37 +3,6 @@
 @use "sass:list";
 @use "sass:color";
 
-@mixin border($settings: null, $additional: null) {
-  $value: "";
-
-  @if $settings {
-    @each $setting in $settings {
-      $key: list.index($settings, $setting);
-      $inset: " inset";
-
-      @if map.get($setting, "outside") {
-        $inset: "";
-      }
-
-      @if $key > 1 {
-        $value: $value + ", ";
-      }
-
-      $value: "#{$value}0 0 0 #{map.get($setting, "width")} #{map.get($setting, "color")}#{$inset}";
-    }
-
-    @if $additional {
-      $value: "#{$value}, #{$additional}";
-    }
-  } @else {
-    $value: $additional;
-  }
-
-  @layer component {
-    box-shadow: string.unquote($value);
-  }
-}
-
 @function color-opacity-to-hex($color, $opacity) {
   $hex: color.ie-hex-str($color);
   $trimmed: "#" + string.slice($hex, 4);
@@ -156,6 +125,37 @@
   $result: $trimmed + map.get($alpha-hex-map, $opacity);
 
   @return string.unquote($result);
+}
+
+@mixin border($settings: null, $additional: null) {
+  $value: "";
+
+  @if $settings {
+    @each $setting in $settings {
+      $key: list.index($settings, $setting);
+      $inset: " inset";
+
+      @if map.get($setting, "outside") {
+        $inset: "";
+      }
+
+      @if $key > 1 {
+        $value: $value + ", ";
+      }
+
+      $value: "#{$value}0 0 0 #{map.get($setting, "width")} #{map.get($setting, "color")}#{$inset}";
+    }
+
+    @if $additional {
+      $value: "#{$value}, #{$additional}";
+    }
+  } @else {
+    $value: $additional;
+  }
+
+  @layer component {
+    box-shadow: string.unquote($value);
+  }
 }
 
 @mixin multi-lines-omission($line-clamp) {
