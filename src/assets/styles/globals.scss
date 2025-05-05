@@ -1,0 +1,81 @@
+@use "./destyle.css";
+@layer component, global;
+
+picture,
+img,
+iframe,
+video {
+  display: block;
+}
+
+html {
+  font-size: 10px;
+  line-height: 1;
+  color: $colors-text-light-body;
+  word-break: break-word;
+  white-space: break-spaces;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+.scroll-lock {
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+.only-app-sp {
+  @include breakpoints-app-pc {
+    display: none !important;
+  }
+}
+
+.only-app-pc {
+  @include breakpoints-app-sp {
+    display: none !important;
+  }
+}
+
+@layer global {
+  *:not(
+      textarea,
+      ul,
+      li,
+      label,
+      [role="dialog"],
+      [role="alertdialog"],
+      [contenteditable="true"]
+    ):focus-visible {
+    // firefox用
+    outline: none !important;
+
+    @include shadow-focus;
+  }
+}
+
+[contenteditable] {
+  user-select: text;
+}
+
+*[role="dialog"],
+*[role="alertdialog"] {
+  outline: none;
+}
+
+fieldset {
+  min-inline-size: unset;
+  padding-block: 0;
+  padding-inline: 0;
+  margin-inline: 0;
+  border-color: unset;
+}
