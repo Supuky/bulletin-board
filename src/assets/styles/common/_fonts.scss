@@ -1,0 +1,70 @@
+// font-family
+$ff-noto-sans-jp: --font-noto-sans-jp;
+$ff-inter: --font-inter;
+$ff-noto-sans-mono: --font-noto-sans-mono;
+
+// font-weight
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+
+@mixin f-inferit {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+@mixin font-family($value, $type: null, $property-name: null) {
+  @if $type == var {
+    font-family: var(#{$property-name}-font-family, var($value));
+  } @else if $type == arg {
+    #{$property-name}-font-family: var($value);
+  } @else if $type == null {
+    font-family: var(#{$value});
+  }
+}
+
+@mixin font-size($value, $type: null, $property-name: null) {
+  @if $type == var {
+    font-size: var(#{$property-name}-font-size, var($value));
+  } @else if $type == arg {
+    #{$property-name}-font-size: $value;
+  } @else if $type == null {
+    font-size: $value;
+  }
+}
+
+@mixin font-weight($value, $type: null, $property-name: null) {
+  @if $type == var {
+    font-weight: var(#{$property-name}-font-weight, var($value));
+  } @else if $type == arg {
+    #{$property-name}-font-weight: $value;
+  } @else if $type == null {
+    font-weight: $value;
+  }
+}
+
+@mixin line-height($value, $type: null, $property-name: null) {
+  @if $type == var {
+    line-height: var(#{$property-name}-line-height, var($value));
+  } @else if $type == arg {
+    #{$property-name}-line-height: $value;
+  } @else if $type == null {
+    line-height: $value;
+  }
+}
+
+@mixin letter-spacing($value, $type: null, $property-name: null) {
+  @if $type == var {
+    letter-spacing: var(#{$property-name}-letter-spacing, var($value));
+  } @else if $type == arg {
+    #{$property-name}-letter-spacing: $value;
+  } @else if $type == null {
+    letter-spacing: $value;
+  }
+}
+
+// TODO: 変数化
