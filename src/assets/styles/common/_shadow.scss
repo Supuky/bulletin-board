@@ -2,7 +2,6 @@
 @use "./utils.scss" as utils;
 
 // box-shadow
-
 $shadow-1:
   0 1px 5px 0 #{utils.color-opacity-to-hex(colors.$neutral-black, 0.3)},
   0 2px 8px 1px #{utils.color-opacity-to-hex(colors.$neutral-black, 0.1)};
