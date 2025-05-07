@@ -34,3 +34,22 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+certificate
+
+# sass
+/src/assets/styles/common/bootstrap.scss
+
+# sass type
+*.module.scss.d.ts
+
+# env
+\.env
+
+# env type
+env.d.ts
+
+*storybook.log
+
+# Million Lint
+.million
