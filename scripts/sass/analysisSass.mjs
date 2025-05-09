@@ -16,11 +16,12 @@ const unquoteFirstAndLast = (value) => {
 };
 
 const generateScssValueMatchRegExp = (key) => {
-  return new RegExp(`(?<=\\\$${key}: ).*?(?=;), 'gm'`);
+  return new RegExp(`(?<=\\\$${key}: ).*?(?=;)`, 'gm');
 };
 
 const findScssValue = (rawData, key) => {
-  const value = rawData.match(generateScssValueMatchRegExp(key)[0]);
+  const value = rawData.match(generateScssValueMatchRegExp(key))[0];
+
   return value;
 };
 
