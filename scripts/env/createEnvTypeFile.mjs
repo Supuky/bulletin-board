@@ -18,7 +18,7 @@ ${interfaces.join('\n')}
       }
     }
   }
-  `;
+}`;
 };
 
 export const createEnvTypeFile = (env) => {

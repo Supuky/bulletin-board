@@ -17,4 +17,4 @@ const specificEnvSchema = z
   })
   .strict();
 
-export const envSchema = commonEnvSchema.marge(specificEnvSchema);
+export const envSchema = commonEnvSchema.merge(specificEnvSchema);

@@ -17,7 +17,7 @@ const srcPath = path.resolve('src');
 const enumPath = `${srcPath}/assets/styles/common`;
 
 // src/assets/styles/common 直下の全ディレクトリを取得
-const allDirects = fs.readFileSync(enumPath, { withFileTypes: true });
+const allDirects = fs.readdirSync(enumPath, { withFileTypes: true });
 // ファイルのみを取得
 const allFiles = allDirects
   .filter((dirent) => dirent.isFile())
@@ -25,8 +25,8 @@ const allFiles = allDirects
 // sassファイルのみを取得
 const scssEnumFiles = allFiles.filter(
   (file) =>
-    file.endWiths('.scss') &&
-    !file.endWiths('.module.scss') &&
+    file.endsWith('.scss') &&
+    !file.endsWith('.module.scss') &&
     file !== 'bootstrap.scss',
 );
 
@@ -34,7 +34,7 @@ const convertScssEnumFileNameToScssForward = (fileName) => {
   const matchedFileName = fileName.match(
     /^\_?([A-z0-9\-]*)(\.module)?\.scss$/,
   )[1];
-  return `@forward 'src/assets/styles/common/${matchedFileName}' as ${matchedFileName}-*'`;
+  return `@forward 'src/assets/styles/common/${matchedFileName}' as ${matchedFileName}-*;`;
 };
 
 const scssForward = scssEnumFiles.map(convertScssEnumFileNameToScssForward);
@@ -58,9 +58,10 @@ const scanAllDirectoriesScssArgsFile = (dirPath) => {
   });
 };
 
-scanAllDirectoriesScssArgsFile(`${srcPath}/components`);
-scanAllDirectoriesScssArgsFile(`${srcPath}/containeers`);
-scanAllDirectoriesScssArgsFile(`${srcPath}/features`);
+// TODO ディレクトリを作成後コメント解除
+// scanAllDirectoriesScssArgsFile(`${srcPath}/components`);
+// scanAllDirectoriesScssArgsFile(`${srcPath}/containeers`);
+// scanAllDirectoriesScssArgsFile(`${srcPath}/features`);
 
 const scssArgumentsUses = scssArgumentsFiles.map((file) => {
   const parentFolderName = path.basename(path.dirname(file));

@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 import path from 'path';
 import { createEnvTypeFile } from './createEnvTypeFile.mjs';
+import { testEnv } from './testEnv.mjs';
 
 const envComment =
   '# !このファイルを直接編集しないでください！\n# !このファイルは、ビルド時にscripts/env/index.mjs から自動生成されます。\n';
@@ -29,7 +30,7 @@ const getArgv = () => {
 
 const loadEnv = () => {
   console.group('Load env');
-  const appEnv = getArgv();
+  const appEnv = getArgv()['--mode'];
   // npm run start の場合は、envを作成する必要がないため、処理をスキップ
   if (typeof appEnv === 'undefined') {
     return;
