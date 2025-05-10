@@ -24,6 +24,9 @@ const notoSansMono = Noto_Sans_Mono({
   fallback: [],
 });
 
+// ref:
+// https://nextjs.org/docs/pages/building-your-application/optimizing/fonts
+// https://github.com/vercel/next.js/issues/44840#issuecomment-1385718414
 export function NextFontStyle() {
   return (
     <style
