@@ -1,5 +1,6 @@
 import { NextFontStyle } from '@/assets/fonts/NextFontStyle';
 import '@/assets/styles/globals.scss';
+import { CommonHead } from '@/containers/heads/CommonHead';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import type { ReactElement, ReactNode } from 'react';
@@ -17,8 +18,10 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   // const getLayout = Component.getLayout ?? ((page) => {
   //   return <SiteLayout>{page}</SiteLayout>
   // });
+
   return (
     <SWRConfig>
+      <CommonHead />
       <NextFontStyle />
     </SWRConfig>
   );
