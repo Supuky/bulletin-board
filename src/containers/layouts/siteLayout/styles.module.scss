@@ -1,0 +1,34 @@
+.main-content {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  min-height: 100vh;
+
+  > .main {
+    padding-inline: var(--main-padding-inline, 16px);
+    padding-bottom: var(--main-padding-bottom, 80px);
+    margin-top: var(--sp-main-margin-top, 40px);
+    overflow: hidden;
+
+    @include breakpoint-app-pc {
+      margin-top: var(--pc-main-margin-top, 80px);
+
+      --main-margin-inline: max(
+        80px,
+        calc(100% - var(--pc-main-content-width))
+      );
+      --main-padding-bottom: 120px;
+    }
+  }
+
+  > .header {
+    position: sticky;
+    top: 0;
+    z-index: $layer-header-z-index;
+    grid-row: 1 / 2;
+  }
+
+  > .footer {
+    grid-row: 3 / 4;
+  }
+}
