@@ -94,24 +94,31 @@ export class Middleware<V extends { [key: string]: unknown }> {
         event,
       );
 
+      // ここで即終了（リダイレクトなどの場合）
+      // NextResponse が返された場合は、レスポンスを返す
       if (process instanceof NextResponse) {
         responseCookies.forEach((args) => {
           process.cookies.set(...args);
         });
         return process;
       }
-
-      const nextResponse = NextResponse.next({
-        request: {
-          headers: requestHeaders,
-        },
-      });
-
-      responseCookies.forEach((args) => {
-        nextResponse.cookies.set(...args);
-      });
-
-      return nextResponse;
+      // 正常時はreturnせず、次のミドルウェアへ
     }
+
+    // すべてのミドルウェアが NextResponse を返さなかった場合、次の処理を続行
+    // ここでは、リクエストヘッダーとレスポンスクッキーを保持したまま、次の処理に進む
+    // NextResponse.next() を使用して、リクエストを次のミドルウェアまたはページに渡す
+    // すべて正常終了した場合のみここでレスポンス
+    const nextResponse = NextResponse.next({
+      request: {
+        headers: requestHeaders,
+      },
+    });
+
+    responseCookies.forEach((args) => {
+      nextResponse.cookies.set(...args);
+    });
+
+    return nextResponse;
   };
 }
