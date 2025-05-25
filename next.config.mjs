@@ -1,5 +1,5 @@
 import generateHeaders from './config/webpack/headers.webpack.mjs';
-import sassOption from './config/webpack/sass.webpack.mjs';
+import sassOptions from './config/webpack/sass.webpack.mjs';
 
 console.log('環境:', process.env.APP_ENV);
 const isProduction =
@@ -14,7 +14,7 @@ const nextConfig = {
   output: 'standalone',
   poweredByHeader: false,
   reactStrictMode: true,
-  sassOption,
+  sassOptions,
   compiler: {
     removeConsole:
       isProduction ?
