@@ -24,7 +24,7 @@ ${interfaces.join('\n')}
 export const createEnvTypeFile = (env) => {
   console.info('Create env.d.ts file');
   const rootPath = path.resolve();
-  const filePath = `${rootPath}/env.d.ts`;
+  const filePath = `${rootPath}/src/@types/env.d.ts`;
   console.info('File path:', filePath);
 
   const envObject = envToObject(env);

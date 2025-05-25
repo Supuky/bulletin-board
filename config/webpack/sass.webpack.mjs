@@ -1,11 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const toSnakeCase = (str) => {
+const toSnakeCase = (str) =>
   str
     .replace(/([A-Z])/g, (match) => `-${match[0].toLowerCase()}`)
     .replace(/^-/, '');
-};
 
 const checkDuplicate = (array) => {
   const set = new Set(array);
@@ -22,7 +21,7 @@ const allDirects = fs.readdirSync(enumPath, { withFileTypes: true });
 const allFiles = allDirects
   .filter((dirent) => dirent.isFile())
   .map((dirent) => dirent.name);
-// sassファイルのみを取得
+// scssファイルのみを取得
 const scssEnumFiles = allFiles.filter(
   (file) =>
     file.endsWith('.scss') &&
@@ -60,7 +59,7 @@ const scanAllDirectoriesScssArgsFile = (dirPath) => {
 
 // TODO ディレクトリを作成後コメント解除
 // scanAllDirectoriesScssArgsFile(`${srcPath}/components`);
-// scanAllDirectoriesScssArgsFile(`${srcPath}/containeers`);
+scanAllDirectoriesScssArgsFile(`${srcPath}/containers`);
 // scanAllDirectoriesScssArgsFile(`${srcPath}/features`);
 
 const scssArgumentsUses = scssArgumentsFiles.map((file) => {
@@ -75,7 +74,7 @@ if (checkDuplicate(scssArgumentsUses)) {
 }
 
 const scssUses = [
-  `@use 'src/assets/styles/common/bootstrap' as *`,
+  `@use 'src/assets/styles/common/bootstrap' as *;`,
   ...scssArgumentsUses,
 ].join('\n');
 

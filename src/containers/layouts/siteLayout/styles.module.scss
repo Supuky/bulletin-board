@@ -10,7 +10,7 @@
     margin-top: var(--sp-main-margin-top, 40px);
     overflow: hidden;
 
-    @include breakpoint-app-pc {
+    @include breakpoints-app-pc {
       margin-top: var(--pc-main-margin-top, 80px);
 
       --main-margin-inline: max(
@@ -24,7 +24,7 @@
   > .header {
     position: sticky;
     top: 0;
-    z-index: $layer-header-z-index;
+    z-index: $layers-header-z-index;
     grid-row: 1 / 2;
   }
 
