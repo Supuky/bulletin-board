@@ -1,0 +1,2 @@
+export const VARIDATION_ERROR_TOAST_TEXT = '';
+export const REGISTER_SUCCESS_TOAST_TEXT = '';
