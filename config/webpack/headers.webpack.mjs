@@ -7,8 +7,8 @@ const generateHeaders = (env) => {
   style-src 'self' 'unsafe-inline' https://www.googletagmanager.com/ https://fonts.googleapis.com/;
   img-src 'self' blob: data:;
   font-src 'self';
-  object-src 'none;
-  base-uri 'self;
+  object-src 'none';
+  base-uri 'self';
   form-action 'self';
   frame-ancestors 'none';
   connect-src 'self' https://www.google-analytics.com/;
