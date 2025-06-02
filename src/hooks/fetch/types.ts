@@ -1,4 +1,6 @@
 import type { HTTP_METHODS, HttpMethods } from '@/enums/httpsMethods';
+import type { FetcherException } from '@/utils/fetcher/exception';
+import type { FetcherResponse } from '@/utils/fetcher/types';
 import type { Key } from 'swr';
 import type { SWRMutationConfiguration } from 'swr/mutation';
 
@@ -53,4 +55,25 @@ export type useMutatedFetchSWRConfig<
       SWRMutationConfiguration<D, Error, SWRMutationKey, ExtraArg, SWRData>
     >,
   ) => void | Promise<void>;
+};
+
+export type UseMutatedFetchSwrConfig<
+  U,
+  M extends HttpMethods,
+  C extends ContentType<M>,
+  D = undefined,
+  Error = ErrorResponse,
+  FormatCallback extends (res: FetcherResponse<D>) => any = (
+    res: FetcherResponse<D>,
+  ) => D,
+> = useMutatedFetchSWRConfig<
+  ReturnType<FormatCallback>,
+  FetcherException<Error>,
+  [U],
+  Args<M, C>
+>;
+
+export type ErrorResponse = {
+  errorCode?: string;
+  message: string;
 };
