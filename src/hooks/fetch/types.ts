@@ -1,6 +1,9 @@
 import type { HTTP_METHODS, HttpMethods } from '@/enums/httpsMethods';
 import type { FetcherException } from '@/utils/fetcher/exception';
-import type { FetcherResponse } from '@/utils/fetcher/types';
+import type {
+  FetcherRequestOptions,
+  FetcherResponse,
+} from '@/utils/fetcher/types';
 import type { Key } from 'swr';
 import type { SWRMutationConfiguration } from 'swr/mutation';
 
@@ -77,3 +80,15 @@ export type ErrorResponse = {
   errorCode?: string;
   message: string;
 };
+
+export type UseMutatedFetchWithoutMiddlewareConfig<
+  D = undefined,
+  E = ErrorResponse,
+  F extends (res: FetcherResponse<D>) => any = (res: FetcherResponse<D>) => D,
+> = {
+  format?: F;
+  onError?: (error: E) => void | Promise<void>;
+  onFinally?: () => void | Promise<void>;
+  onLoadingSlow?: () => void;
+  onSuccess?: (data: D) => void | Promise<void>;
+} & Omit<FetcherRequestOptions, 'params' | 'body'>;
