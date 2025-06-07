@@ -1,5 +1,10 @@
 import { isUndefined } from '@/utils/typeGuards';
 
+/**
+ * BroadcastChannel を利用したストアを作成するためのユーティリティ。
+ * 指定したチャンネル名でメッセージの送受信ができる。
+ */
+
 type BroadcastChannelStore<T> = {
   current: {
     message: T | undefined;
