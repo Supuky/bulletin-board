@@ -1,3 +1,4 @@
+import type { ReactListener } from '@/utils/react';
 import { isUndefined } from '@/utils/typeGuards';
 
 /**
@@ -36,7 +37,7 @@ export const createBroadcastChannelStore = <T>(channel: string) => {
     },
   };
 
-  const subscribeBroadcastChannel = (reactNotify: () => void) => {
+  const subscribeBroadcastChannel = (reactNotify: ReactListener) => {
     broadcastChannel = getOrCreateBroadcastChannel(channel);
 
     broadcastChannel.onmessage = (event: MessageEvent<T>) => {
