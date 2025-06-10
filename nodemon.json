@@ -1,0 +1,5 @@
+{
+  "exec": "node .mock/main.mjs",
+  "ext": "mjs",
+  "watch": [".mock"]
+}
