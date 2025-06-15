@@ -1,2 +1,11 @@
 github
 .husky
+.mock
+.next
+.storybook
+.vscode
+certificates
+node_module
+.gitignore
+docker
+.git
