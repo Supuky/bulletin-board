@@ -1,6 +1,11 @@
 import { isUndefined } from '@/utils/typeGuards';
 import { useRef } from 'react';
 
+/**
+ * スリープ（遅延）機能を管理するカスタムフック。
+ * @param delay ミリ秒単位のスリープ時間。
+ * @returns スリープ状態を制御するメソッドを含むオブジェクト。
+ */
 export const useSleep = (delay: number) => {
   const timer = useRef<NodeJS.Timeout | undefined>(undefined);
 
