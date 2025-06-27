@@ -2,11 +2,15 @@ import type { Enum } from '@/types/enum';
 
 export const KEY_CODES = {
   ENTER: 'Enter',
+  DELETE: 'Delete',
   TAB: 'Tab',
   ESCAPE: 'Escape',
   SPACE: ' ',
   BACKSPACE: 'Backspace',
   MINUS: '-',
+  PLUS: '+',
+  MULTIPLY: '*',
+  DIVIDE: '/',
   LEFT: 'ArrowLeft',
   RIGHT: 'ArrowRight',
   UP: 'ArrowUp',
