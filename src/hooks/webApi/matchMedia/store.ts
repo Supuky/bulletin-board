@@ -4,6 +4,11 @@ type MatchMediaStore = {
   current: boolean | undefined;
 };
 
+/**
+ * メディアクエリの状態を監視するストアを作成します。
+ * @param query - 監視するメディアクエリの文字列。
+ * @returns オブジェクトに、メディアクエリの状態を監視するための関数と、現在の状態を取得するための関数が含まれます。
+ */
 export const createMatchMediaStateStore = (query: string) => {
   const state: MatchMediaStore = {
     current: undefined,
