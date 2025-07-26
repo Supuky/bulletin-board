@@ -16,3 +16,14 @@ RUN \
   elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i \
   else echo "Warning: lockfile not found. It is recommended to commit lockfiles to version control." && yarn install; \
   fi
+
+# 2. Rebuild the source code only when needed
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+# This will do the trick, use the corresponding env file for each enviroment.
+# examle
+# COPY .env.loc .env.loc
+# COPY .env.common .env.common
+# RUN npm run build:loc
