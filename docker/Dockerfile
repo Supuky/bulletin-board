@@ -27,3 +27,14 @@ COPY . .
 # COPY .env.loc .env.loc
 # COPY .env.common .env.common
 # RUN npm run build:loc
+
+# 3. Production image, copy all the files and run next
+FROM base AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 service
+
+COPY --from=builder /app/public ./public
