@@ -23,7 +23,6 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # This will do the trick, use the corresponding env file for each enviroment.
-# examle
 # COPY .env.loc .env.loc
 # COPY .env.common .env.common
 # RUN npm run build:loc
