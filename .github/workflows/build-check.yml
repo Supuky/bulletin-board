@@ -1,5 +1,42 @@
-name: build-check
-on: [pull_request]
+# name: build-check
+# on: [pull_request]
 # jobs:
 #   build-check:
 #     runs-on: ubuntu-latest
+#     timeout-minutes: 15
+#     steps:
+#       - uses: actions/checkout@v4
+#         with:
+#           lfs: true
+
+#       # サブモジュールがあれば参照する
+
+#       # node_modules がキャッシュされていれば使用する
+#       - name: Cache node modules
+#         id: cache-npm
+#         uses: actions/cache@v4
+#         env:
+#           cache-name: cache-node-modules
+#         with:
+#           path: node_modules
+#           key: ${{ run.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#           restore-keys: ${{ run.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+#       # node_modules がキャッシュされていなければインストール
+#       - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+#         name: Install node modules
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: '20.12.2'
+
+#       - name: Version check
+#         run: node --version
+
+#       # モジュールのインストール
+#       - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+#         name: Install dependencies
+#         run: npm install
+
+#       # 実行
+#       - name: Build
+#         run: npm run build:test
