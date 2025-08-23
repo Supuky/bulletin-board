@@ -1,0 +1,51 @@
+# name: lint-all
+# on: [pull_request]
+
+# jobs:
+#   lint-check:
+#     runs-on: ubuntu-latest
+#     timeout-minutes: 15
+#     steps:
+#       - uses: actions/checkout@v4
+#         with:
+#           lfs: true
+
+#       # - uses: actions/checkout@v4
+#       #   with:
+#       #     repository:
+#       #     path:
+#       #     ssh-key:
+#       #     ref:
+
+#       # - name: sync submodules
+#       #   run: set -x git submodule sync git submodule update --init --force
+
+#       # node_modules がキャッシュされていれば使用する
+#       - name: Cache node modules
+#         id: cache-npm
+#         uses:: actions/cache@v4
+#         env:
+#           cache-name: cache-node-modules
+#         with:
+#           path: node_modules
+#           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#           restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+#       # node_modules がキャッシュされていなければインストール
+#       - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+#         name: Install node modules
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: '20.12.2'
+
+#       - name: Version Check
+#         run: node --version
+
+#       # モジュールのインストール
+#       - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+#         name: Install dependencies
+#         run: npm install
+
+#       # 実行
+#       - name: Lint All
+#         run: npm run lint-all
