@@ -1,7 +1,8 @@
-# name: build-check
+# name: lint-all
 # on: [pull_request]
+
 # jobs:
-#   build-check:
+#   lint-check:
 #     runs-on: ubuntu-latest
 #     timeout-minutes: 15
 #     steps:
@@ -9,18 +10,26 @@
 #         with:
 #           lfs: true
 
-#       # サブモジュールがあれば参照する
+#       # - uses: actions/checkout@v4
+#       #   with:
+#       #     repository:
+#       #     path:
+#       #     ssh-key:
+#       #     ref:
+
+#       # - name: sync submodules
+#       #   run: set -x git submodule sync git submodule update --init --force
 
 #       # node_modules がキャッシュされていれば使用する
 #       - name: Cache node modules
 #         id: cache-npm
-#         uses: actions/cache@v4
+#         uses:: actions/cache@v4
 #         env:
 #           cache-name: cache-node-modules
 #         with:
 #           path: node_modules
-#           key: ${{ run.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-#           restore-keys: ${{ run.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#           restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
 #       # node_modules がキャッシュされていなければインストール
 #       - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
@@ -29,7 +38,7 @@
 #         with:
 #           node-version: '20.12.2'
 
-#       - name: Version check
+#       - name: Version Check
 #         run: node --version
 
 #       # モジュールのインストール
@@ -38,5 +47,5 @@
 #         run: npm install
 
 #       # 実行
-#       - name: Build
-#         run: npm run build:test
+#       - name: Lint All
+#         run: npm run lint-all
