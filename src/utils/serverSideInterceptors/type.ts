@@ -13,7 +13,7 @@ export type ServerSideCookieOptions = {
 
 export type ServerSideCookieHelper = {
   delete: (key: string, options?: ServerSideCookieOptions) => void;
-  set: (key: string, value: string, options?: ServerSideCookieOptions) => void;
+  set: (key: string, value: string, options: ServerSideCookieOptions) => void;
 };
 
 export type ServerSideInterceptorVariablesHelper<
