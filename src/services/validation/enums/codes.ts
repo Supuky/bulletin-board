@@ -14,7 +14,7 @@ export const VALIDATION_CODES = {
   INVALID_PATTERN_EMAIL: 'INVALID_PATTERN_EMAIL',
   INVALID_PATTERN_URL: 'INVALID_PATTERN_URL',
   INVALID_PATTERN_POSTCODE: 'INVALID_PATTERN_POSTCODE',
-  INVALID_NAMAE: 'INVALID_NAME',
+  INVALID_NAME: 'INVALID_NAME',
 
   FE_ENUM_REQUIRED: 'FE_ENUM_REQUIRED',
   FE_MIN_CHECKBOX_GROUP_SIZE: 'FE_MIN_CHECKBOX_GROUP_SIZE',
@@ -57,7 +57,7 @@ export const toValidationMessage = (
       return '正しいURLの形式で入力してください。';
     case VALIDATION_CODES.INVALID_PATTERN_POSTCODE:
       return '正しい郵便番号の形式で入力してください。';
-    case VALIDATION_CODES.INVALID_NAMAE:
+    case VALIDATION_CODES.INVALID_NAME:
       return '正しい氏名の形式で入力してください。';
     case VALIDATION_CODES.FE_HALF_WIDTH_NUMBERS:
       return `${addon ?? '項目'}は半角数字で入力してください。`;
