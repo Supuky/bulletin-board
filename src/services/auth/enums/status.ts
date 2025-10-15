@@ -7,4 +7,11 @@ export const LOGIN_EXCEPTION_STATUS = {
 
 export type LoginExceptionStatus = Enum<typeof LOGIN_EXCEPTION_STATUS>;
 
-// TODO: 今後型を追加するかも
+export const LOGIN_TYPE_MISMATCH_QUERY_TYPES = {
+  GENERAL_TRY_LOGIN_AS_ADMIN: '0',
+  ADMIN_TRY_LOGIN_AS_GENERAL: '1',
+};
+
+export type LoginTypeMismatchQueryTypes = Enum<
+  typeof LOGIN_TYPE_MISMATCH_QUERY_TYPES
+>;
