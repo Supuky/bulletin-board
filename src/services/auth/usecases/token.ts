@@ -41,7 +41,12 @@ export const getNewAccessTokenByRefreshToken = async (
     previousRefreshToken,
   });
 
-  return response;
+  console.log(response);
+
+  return {
+    accessToken: 'accessToken',
+    refreshToken: 'refreshToken',
+  };
 };
 
 export const deletePageAuthCookies = (
