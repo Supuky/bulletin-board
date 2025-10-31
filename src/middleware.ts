@@ -4,6 +4,7 @@
 //   ERROR_404_URL,
 //   ERROR_500_URL,
 // } from '@/configs/urls';
+import type { LegitimateAuthCookieSchemaPayload } from '@/services/auth/schemas/common';
 import { Middleware } from '@/utils/middlewares';
 
 // const errorPagePath = [
@@ -14,7 +15,7 @@ import { Middleware } from '@/utils/middlewares';
 // ];
 
 export type MiddlewareVariables = {
-  [key: string]: unknown;
+  authCookies: LegitimateAuthCookieSchemaPayload;
 };
 
 const middleware = new Middleware<MiddlewareVariables>();
